@@ -51,11 +51,15 @@ const login = async (req: Request, res: Response): Promise<any> => {
     }
 
     const user = await Auth.findOne({ email })
+
+
     if (!user) {
       return res.status(401).json({ success: false, message: "unathorized" })
     }
 
+
     const validatePassword = await bcryptjs.compare(password, user.password)
+
 
     if (!validatePassword) {
       return res.status(401).json({ success: false, message: "unathorized" })
