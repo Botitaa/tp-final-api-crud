@@ -1,7 +1,4 @@
-// averiguar como usar una variable de entorno en un proyecto de vite/react
-
-// reemplazar por la variable de entorno con la misma data
-const BASE_API = "http://localhost:1234/api"
+const BASE_API = import.meta.env.VITE_BASE_API
 
 const register = async ({ username, email, password }) => {
   const response = await fetch(BASE_API + "/auth/register", {
